@@ -1,0 +1,23 @@
+# Thư mục thư viện của Node.js
+node_modules/
+dist/
+build/
+
+# Các file chứa mật khẩu, token bí mật (Cực kỳ quan trọng)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# File log hệ thống
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Thư mục dữ liệu local của Docker Postgres
+postgres_data/
+
+# Hệ điều hành tự sinh
+.DS_Store
+Thumbs.db

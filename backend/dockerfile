@@ -1,0 +1,15 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Chỉ copy package files trước để tối ưu hóa cache layer của Docker
+COPY package*.json ./
+
+RUN npm install
+
+# Copy toàn bộ mã nguồn backend vào container
+COPY . .
+
+EXPOSE 5000
+
+CMD ["node", "server.js"]
