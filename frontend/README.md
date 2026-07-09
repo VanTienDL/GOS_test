@@ -13,12 +13,12 @@ Tạo file `.env` tại thư mục này để kết nối API:
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-# 1. Cài đặt các gói thư viện
+### 1. Cài đặt các gói thư viện
 npm install
 
-# 2. Chạy ứng dụng dưới local
+### 2. Chạy ứng dụng dưới local
 npm run dev
 
-# 3. Biên dịch mã nguồn ra thư mục tĩnh (dist)
+### 3. Biên dịch mã nguồn ra thư mục tĩnh (dist)
 npm run build
 
