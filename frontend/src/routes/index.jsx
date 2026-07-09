@@ -1,4 +1,4 @@
-import React from 'rect';
+import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from '../components/Layout/Layout';
 import SearchScore from '../components/SearchScore/SearchScore';
