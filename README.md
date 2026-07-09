@@ -1,4 +1,4 @@
-# National High School Exam 2024 - Management & Lookup System
+# National High School Exam 2024 - GOS Test
 
 A decoupled full-stack web application designed for analyzing and looking up the 2024 Vietnamese National High School Exam results. The system features a React-Vite frontend and an ExpressJS backend, both containerized using Docker and deployed across production cloud environments (Vercel & Koyeb).
 
