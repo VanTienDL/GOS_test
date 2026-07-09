@@ -37,15 +37,13 @@
     margin-bottom: 24px;
     width: 100%;
 
-    // Chỗ này xử lý cho Form Item bọc ô Input chiếm hết không gian trống
     .ant-form-item:first-child {
       flex: 1;
       margin-right: 0;
     }
 
-    // Khi trên màn hình điện thoại (Mobile)
     @media (max-width: 576px) {
-      flex-direction: column; // Chuyển từ hàng ngang thành hàng dọc xếp chồng
+      flex-direction: column; 
       
       .ant-form-item {
         width: 100%;
@@ -57,16 +55,15 @@
       }
 
       .search-input {
-        width: 100%; // Input rộng 100% màn hình
+        width: 100%;
       }
 
       button {
-        width: 100%; // Nút bấm Tra Cứu rộng 100% trải dài ra dễ bấm
+        width: 100%; 
       }
     }
   }
 
-  // Tối ưu nhẹ bảng điểm Descriptions khi hiển thị trên mobile
   .ant-descriptions-view {
     @media (max-width: 576px) {
       font-size: 13px;

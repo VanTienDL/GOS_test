@@ -1,9 +1,8 @@
 .main-layout {
   min-height: 100vh;
   display: flex;
-  flex-direction: row; // Màn desktop: Sidebar nằm bên trái, Content nằm bên phải
+  flex-direction: row;
 
-  // Cấu trúc Sidebar cố định trên Desktop rộng 200px
   .sidebar-container {
     width: 200px;
     background: #001529;
@@ -44,7 +43,6 @@
     }
   }
 
-  // Mặc định ẩn thanh menu ngang này ở màn hình máy tính lớn (Desktop)
   .mobile-navigation {
     display: none;
   }
@@ -65,17 +63,14 @@
   }
 }
 
-// ================= RESPONSIVE TRÊN MOBILE & TABLET =================
 @media (max-width: 992px) {
   .main-layout {
-    flex-direction: column; // Chuyển toàn bộ bố cục tổng thể thành một hàng dọc
+    flex-direction: column; 
 
-    // 1. Ẩn hoàn toàn Sidebar dọc đi khi co nhỏ màn hình
     .sidebar-container {
       display: none !important;
     }
 
-    // 2. Căn giữa tiêu đề hệ thống
     .site-header {
       justify-content: center;
       text-align: center;
@@ -84,7 +79,6 @@
       line-height: normal;
     }
 
-    // 3. Hiện thanh menu ngang mượt mà, không giật lag
     .mobile-navigation {
       display: block;
       width: 100%;

@@ -6,7 +6,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
     .ant-card-head-title {
-      white-space: normal; // Cho phép tiêu đề Card tự xuống dòng nếu màn hình quá nhỏ
+      white-space: normal; 
       font-size: 1rem;
       
       @media (max-width: 576px) {
@@ -15,17 +15,16 @@
     }
   }
 
-  // Khung chứa biểu đồ tự co giãn chiều cao linh hoạt
   .responsive-chart-wrapper {
     width: 100%;
-    height: 470px; // Màn hình lớn
+    height: 470px;
 
     @media (max-width: 768px) {
-      height: 380px; // Màn hình Tablet
+      height: 380px;
     }
 
     @media (max-width: 576px) {
-      height: 320px; // Màn hình Điện thoại di động
+      height: 320px;
     }
   }
   
@@ -47,7 +46,7 @@
       color: #555;
 
       @media (max-width: 576px) {
-        font-size: 12px; // Thu nhỏ chữ một chút trên mobile
+        font-size: 12px; 
       }
     }
 
@@ -55,11 +54,10 @@
       margin-inline-start: 8px;
     }
 
-    // Biến đổi khối Space của AntD thành dạng lưới linh hoạt trên mobile
     @media (max-width: 576px) {
       .ant-space {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr); // Chia làm 2 cột cân xứng
+        grid-template-columns: repeat(2, 1fr); 
         gap: 8px 16px !important;
         width: fit-content;
         margin: 0 auto;
@@ -68,7 +66,6 @@
   }
 }
 
-// Bổ sung class loading cho đồng bộ
 .loading-container {
   display: flex;
   justify-content: center;

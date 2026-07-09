@@ -18,7 +18,7 @@ const ScoreChart = () => {
       } catch (error) {
         message.error('Không thể lấy dữ liệu thống kê biểu đồ.');
       } finally {
-        loading(false);
+        setLoading(false);
       }
     };
     fetchStats();
@@ -42,15 +42,13 @@ const ScoreChart = () => {
   return (
     <div className="score-chart-container">
       <Card title="📊 BIỂU ĐỒ THỐNG KÊ PHÂN PHỐI MỨC ĐIỂM THEO MÔN HỌC" className="chart-card">
-        {/* Đưa style height ra ngoài file SCSS để responsive theo màn hình */}
         <div className="responsive-chart-wrapper">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
-              margin={{ top: 10, right: 10, left: -10, bottom: 5 }} // Giảm margin trái phải cho rộng chỗ
+              margin={{ top: 10, right: 10, left: -10, bottom: 5 }} 
             >
               <CartesianGrid strokeDasharray="3 3" />
-              {/* SỬA CHỖ NÀY: Nghiêng chữ 45 độ để tránh đè chữ trên mobile */}
               <XAxis 
                 dataKey="subjectName" 
                 tick={{ fontSize: 11 }}
@@ -58,7 +56,6 @@ const ScoreChart = () => {
                 textAnchor="end" 
                 height={65} 
               />
-              {/* SỬA CHỖ NÀY: Giới hạn width của trục Y cho đỡ chiếm chỗ */}
               <YAxis tick={{ fontSize: 11 }} width={45} />
               
               <Tooltip 
@@ -77,7 +74,6 @@ const ScoreChart = () => {
           </ResponsiveContainer>
         </div>
 
-        {/* Xóa inline style ở đây, kiểm soát hoàn toàn bằng SCSS */}
         <div className="custom-legend-container">
           <Space size="large" wrap className="legend-space">
             {legendItems.map((item, index) => (
