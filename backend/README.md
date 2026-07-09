@@ -13,18 +13,19 @@ Tạo file `.env` tại thư mục này với các biến sau:
 PORT=5000
 DATABASE_URL=postgresql://<user>:<password>@<host>:<port>/<dbname>
 FRONTEND_URL=http://localhost:3000
+```
 
-# 1. Cài đặt thư viện dependencies
+### 1. Cài đặt thư viện dependencies
 npm install
 
-# 2. Khởi chạy server ở chế độ Development
+### 2. Khởi chạy server ở chế độ Development
 npm run dev
 
-# 3. Khởi chạy server ở chế độ Production
+### 3. Khởi chạy server ở chế độ Production
 npm start
 
-# Build Docker Image chuẩn hệ thống
+### 4. Build Docker Image chuẩn hệ thống
 docker build -t <username_dockerhub>/gos-backend:latest .
 
-# Đẩy Image lên Docker Hub Registry
+### 5. Đẩy Image lên Docker Hub Registry
 docker push <username_dockerhub>/gos-backend:latest ```
