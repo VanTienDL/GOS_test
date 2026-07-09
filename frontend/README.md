@@ -1,16 +1,23 @@
-# React + Vite
+# GOS Frontend UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ứng dụng giao diện người dùng được xây dựng bằng ReactJS và Vite, cung cấp các bộ lọc tra cứu điểm thi và hiển thị biểu đồ phân tích trực quan.
 
-Currently, two official plugins are available:
+## ⚙️ Các tính năng cốt lõi
+- **Tra cứu:** Tìm kiếm điểm thi chi tiết theo Số báo danh (SBD) của thí sinh.
+- **Thống kê:** Biểu đồ phân phối mức điểm theo từng môn học sử dụng Chart.js.
+- **Top Khối:** Danh sách xếp hạng các thí sinh đạt điểm cao nhất theo các khối thi (A, B, C...).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔑 Biến môi trường (.env)
+Tạo file `.env` tại thư mục này để kết nối API:
+```text
+VITE_API_BASE_URL=http://localhost:5000/api
 
-## React Compiler
+# 1. Cài đặt các gói thư viện
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 2. Chạy ứng dụng dưới local
+npm run dev
 
-## Expanding the Oxlint configuration
+# 3. Biên dịch mã nguồn ra thư mục tĩnh (dist)
+npm run build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
