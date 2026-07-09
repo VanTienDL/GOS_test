@@ -1,31 +1,32 @@
-# Hệ Thống Quản Lý & Tra Cứu Điểm Thi THPT Quốc Gia 2024
+# National High School Exam 2024 - Management & Lookup System
 
-Hệ thống bao gồm hai thành phần độc lập: Frontend (React Vite) và Backend (ExpressJS), được đóng gói bằng Docker và deploy lên môi trường Production (Vercel & Koyeb).
+A decoupled full-stack web application designed for analyzing and looking up the 2024 Vietnamese National High School Exam results. The system features a React-Vite frontend and an ExpressJS backend, both containerized using Docker and deployed across production cloud environments (Vercel & Koyeb).
 
-## 📁 Cấu trúc thư mục dự án
+## 📁 Project's folders
 ```text
 .
-├── backend/          # Source code NodeJS Express & cấu hình Docker
-├── frontend/         # Source code React Vite & cấu hình Vercel/Docker
-└── README.md         # Tài liệu hướng dẫn tổng quan hệ thống
+├── backend/          # Source code NodeJS Express & Docker configuration
+├── frontend/         # Source code React Vite & Vercel/Docker configuration
+└── README.md         # Guide & reproducibility
 ```
-## 🛠️ Công nghệ sử dụng trong hệ thống
+## 🛠️ Tech Stack
 - **Frontend:** ReactJS, Vite, Ant Design, Axios, Chart.js.
 - **Backend:** NodeJS, ExpressJS, Sequelize (ORM).
 - **Database:** PostgreSQL (Supabase Cloud).
 - **DevOps:** Docker, Docker Hub, Vercel, Koyeb Cloud.
 
-## 🚀 Hướng dẫn chạy nhanh dưới Local bằng Docker Compose
-Nếu máy local đã cài sẵn Docker Desktop, hệ thống có thể khởi động ngay lập tức thông qua file docker-compose (nếu có):
+## 🚀 Quick Local Setup with Docker Compose
+If you have Docker Desktop installed, you can spin up the entire local environment (Frontend, Backend, and local services if applicable) with a single command:
 
 ```bash
-# Khởi động toàn bộ dịch vụ (Frontend, Backend, Database)
+# Build and run all containerized services in detached mode
 docker-compose up -d --build
+```
 
-Hệ thống sẽ chạy tại các cổng mặc định:
+Once the containers are running, the application will be accessible via:
 
-Frontend: http://localhost:3000 hoặc http://localhost:5173
+Frontend: http://localhost:3000 or http://localhost:5173
 
 Backend: http://localhost:5000
 
-Chi tiết cấu hình và cài đặt thủ công từng phần, vui lòng xem tại tài liệu hướng dẫn riêng trong thư mục /backend và /frontend.
+For individual service setup, manual configuration, and custom environment configurations, please refer to the specific documentation located inside the /backend and /frontend directories.
