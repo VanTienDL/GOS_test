@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import { SearchOutlined, BarChartOutlined, TrophyOutlined } from '@ant-design/icons';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import './Layout.scss';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 
 const MainLayout = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,14 +18,9 @@ const MainLayout = () => {
 
   return (
     <Layout className="main-layout">
-      <Sider 
-        collapsible 
-        collapsed={collapsed} 
-        onCollapse={(value) => setCollapsed(value)}
-        breakpoint="lg"
-      >
+      <div className="sidebar-container">
         <div className="logo">
-          <h2>{collapsed ? 'THPT' : 'THPT 2024'}</h2>
+          <h2>THPT 2024</h2>
         </div>
         <Menu 
           theme="dark" 
@@ -35,12 +29,24 @@ const MainLayout = () => {
           items={menuItems}
           onClick={({ key }) => navigate(key)}
         />
-      </Sider>
+      </div>
       
       <Layout className="site-layout">
         <Header className="site-header">
           <h1>HỆ THỐNG QUẢN LÝ & TRA CỨU ĐIỂM THI THPT QUỐC GIA 2024</h1>
         </Header>
+
+        
+        <div className="mobile-navigation">
+          <Menu 
+            theme="dark" 
+            mode="horizontal" 
+            selectedKeys={[location.pathname]} 
+            items={menuItems}
+            onClick={({ key }) => navigate(key)}
+            disabledOverflow={true} 
+          />
+        </div>
         
         <Content className="site-content">
           <div className="content-container">

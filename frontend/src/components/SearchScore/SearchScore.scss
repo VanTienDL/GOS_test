@@ -18,3 +18,58 @@
     }
   }
 }
+.search-score-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+
+  .search-card {
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .search-form {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 24px;
+    width: 100%;
+
+    // Chỗ này xử lý cho Form Item bọc ô Input chiếm hết không gian trống
+    .ant-form-item:first-child {
+      flex: 1;
+      margin-right: 0;
+    }
+
+    // Khi trên màn hình điện thoại (Mobile)
+    @media (max-width: 576px) {
+      flex-direction: column; // Chuyển từ hàng ngang thành hàng dọc xếp chồng
+      
+      .ant-form-item {
+        width: 100%;
+        margin-right: 0 !important;
+        
+        .ant-form-item-control-input-content {
+          width: 100%;
+        }
+      }
+
+      .search-input {
+        width: 100%; // Input rộng 100% màn hình
+      }
+
+      button {
+        width: 100%; // Nút bấm Tra Cứu rộng 100% trải dài ra dễ bấm
+      }
+    }
+  }
+
+  // Tối ưu nhẹ bảng điểm Descriptions khi hiển thị trên mobile
+  .ant-descriptions-view {
+    @media (max-width: 576px) {
+      font-size: 13px;
+    }
+  }
+}
