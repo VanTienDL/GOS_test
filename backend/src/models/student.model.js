@@ -10,7 +10,7 @@ const Student = sequelize.define('Student', {
   sbd: {
     type: DataTypes.STRING(15),
     allowNull: false,
-    unique: true // Tự động tạo UNIQUE INDEX cho Số Báo Danh từ phía DB
+    unique: true // UNIQUE INDEX for SBD in DB
   },
   toan: { 
     type: DataTypes.FLOAT, 
@@ -53,12 +53,12 @@ const Student = sequelize.define('Student', {
     allowNull: true 
   }
 }, {
-  tableName: 'Students', // Chỉ định rõ ràng tên bảng trong Postgres
-  timestamps: false,     // Tắt thuộc tính tự sinh createdAt và updatedAt để tối ưu dung lượng
+  tableName: 'Students',
+  timestamps: false,
   indexes: [
     {
       unique: true,
-      fields: ['sbd']     // Đánh index tường minh tối ưu hóa truy vấn tìm kiếm bằng SBD
+      fields: ['sbd']   // Indexing for SBD to speed up queries
     }
   ]
 });

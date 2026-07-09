@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 
 let sequelize;
 
-// Nếu trên Cloud (Koyeb) có nạp DATABASE_URL tổng hợp, ta sử dụng nó
+// For deploying on cloud
 if (process.env.DATABASE_URL && process.env.NODE_ENV === 'production') {
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
@@ -15,9 +15,8 @@ if (process.env.DATABASE_URL && process.env.NODE_ENV === 'production') {
     }
   });
 } else {
-  // Môi trường LOCAL (Cả chạy npm start thuần hoặc Docker Compose)
-  // Ép Sequelize kết nối thông qua các biến đơn lẻ, đây là cách chạy ỔN ĐỊNH NHẤT của Postgres trên Windows
-  console.log('🔌 Thiết lập kết nối Postgres Local qua thông số cấu hình đơn lẻ...');
+  // Run locally (npm start or Docker compose)
+  console.log('🔌 Kết nối Postgres Local...');
   
   sequelize = new Sequelize(
     process.env.DB_NAME || 'gos_thpt_2024',
@@ -28,7 +27,7 @@ if (process.env.DATABASE_URL && process.env.NODE_ENV === 'production') {
       port: parseInt(process.env.DB_PORT) || 5432,
       dialect: 'postgres',
       logging: false,
-      native: false, // Tuyệt đối không dùng driver native C++ gây lỗi .on()
+      native: false,
       pool: {
         max: 5,
         min: 0,

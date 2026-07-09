@@ -1,22 +1,22 @@
 class Subject {
   constructor(name, fieldName) {
-    this.name = name;           // Tên môn học hiển thị (Ví dụ: "Toán")
-    this.fieldName = fieldName; // Tên cột tương ứng trong DB (Ví dụ: "toan")
+    this.name = name;           // Display name
+    this.fieldName = fieldName; // Column name
   }
 
-  // Phương thức dùng chung: Phân loại mức điểm theo đúng 4 cấp của đề bài
+  // Evaluate func
   getScoreLevel(score) {
     if (score === null || score === undefined) return null;
     
-    if (score >= 8.0) return 'LEVEL_1';               // >= 8 points
-    if (score < 8.0 && score >= 6.0) return 'LEVEL_2'; // 8 > && >= 6 points
-    if (score < 6.0 && score >= 4.0) return 'LEVEL_3'; // 6 > && >= 4 points
-    return 'LEVEL_4';                                  // < 4 points
+    if (score >= 8.0) return 'LEVEL_1';
+    if (score < 8.0 && score >= 6.0) return 'LEVEL_2'; 
+    if (score < 6.0 && score >= 4.0) return 'LEVEL_3';
+    return 'LEVEL_4';
   }
 
-  // Phương thức validate điểm số đầu vào
+  // Validate score input
   isValidScore(score) {
-    if (score === null || score === undefined) return true; // Thí sinh không thi môn này
+    if (score === null || score === undefined) return true;
     return typeof score === 'number' && score >= 0 && score <= 10;
   }
 }

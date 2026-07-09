@@ -44,13 +44,12 @@ const MainLayout = () => {
         
         <Content className="site-content">
           <div className="content-container">
-            {/* Outlet sẽ là nơi hiển thị nội dung các route con */}
             <Outlet />
           </div>
         </Content>
         
         <Footer className="site-footer">
-          Golden Owl Assignment ©2026 - Developed by Tien
+          Golden Owl Assignment ©2026 - Developed by VanTienDL
         </Footer>
       </Layout>
     </Layout>

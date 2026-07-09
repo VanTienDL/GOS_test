@@ -1,6 +1,6 @@
 const Subject = require('./subject.base');
 
-// Sử dụng tính chất kế thừa và đa hình của OOP
+// Class inheritance
 class MathSubject extends Subject { constructor() { super('Toán', 'toan'); } }
 class LiteratureSubject extends Subject { constructor() { super('Ngữ Văn', 'ngu_van'); } }
 class ForeignLanguageSubject extends Subject { constructor() { super('Ngoại Ngữ', 'ngoai_ngu'); } }
@@ -11,7 +11,7 @@ class HistorySubject extends Subject { constructor() { super('Lịch Sử', 'lic
 class GeographySubject extends Subject { constructor() { super('Địa Lý', 'dia_li'); } }
 class CivicEducationSubject extends Subject { constructor() { super('GDCD', 'gdcd'); } }
 
-// Gom toàn bộ các môn học vào một danh sách quản lý tập trung
+// List
 const availableSubjects = [
   new MathSubject(),
   new LiteratureSubject(),

@@ -9,7 +9,6 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Tổ chức Nested Routes bọc bởi MainLayout */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Navigate to="/search" replace />} />
           <Route path="search" element={<SearchScore />} />

@@ -10,9 +10,8 @@ const TopStudent = () => {
     useEffect(() => {
         const fetchTopStudents = async () => {
             try {
-                const response = await api.get('/reports/top-khoid-a');
+                const response = await api.get('/reports/top-khoi-a');
                 if (response.data.success) {
-                    // Thêm trường key cho từng object để AntD Table không bị warning
                     const dataWithKey = response.data.data.map((item, index) => ({
                         ...item,
                         key: item.sbd,
@@ -32,13 +31,12 @@ const TopStudent = () => {
     const columns = [
         {
             title: 'Hạng',
-            dataIndex: 'rank', // 1. SỬA THÀNH dataIndex
+            dataIndex: 'rank',
             key: 'rank',
             width: 80,
             align: 'center',
-            // 2. Sử dụng tham số thứ 3 của hàm render (index của mảng, từ 0 trở đi)
             render: (text, record, index) => {
-                const actualRank = index + 1; // Hạng 1, 2, 3...
+                const actualRank = index + 1;
                 let color = 'blue';
                 if (actualRank === 1) color = 'gold';
                 if (actualRank === 2) color = 'volcano';
@@ -93,7 +91,7 @@ const TopStudent = () => {
                     loading={loading}
                     pagination={false}
                     bordered
-                    scroll={{ x: true }} // Bật tính năng responsive cho bảng trên thiết bị nhỏ
+                    scroll={{ x: true }}
                 />
             </Card>
         </div>

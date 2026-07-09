@@ -4,7 +4,7 @@ exports.getStudentBySbd = async (req, res) => {
   try {
     const { sbd } = req.params;
 
-    // Logic Tightening: Kiểm tra định dạng SBD đầu vào (Chỉ gồm các chữ số và độ dài chuẩn)
+    // Logic Tightening: Validate SBD (only number and length between 8-12)
     const sbdRegex = /^[0-9]{8,12}$/; 
     if (!sbd || !sbdRegex.test(sbd)) {
       return res.status(400).json({
@@ -13,7 +13,7 @@ exports.getStudentBySbd = async (req, res) => {
       });
     }
 
-    // Truy vấn dữ liệu từ Postgres (Nhờ có Index Unique tốc độ sẽ < 10ms)
+    // Query DB
     const student = await Student.findOne({ where: { sbd } });
 
     if (!student) {

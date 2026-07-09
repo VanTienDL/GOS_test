@@ -25,7 +25,7 @@ const SearchScore = () => {
     }
   };
 
-  // Hàm bổ trợ render điểm số hoặc hiển thị dấu "-" nếu null
+  // Render score, null or undefined become -
   const renderScore = (score) => (score !== null && score !== undefined ? score : '-');
 
   return (

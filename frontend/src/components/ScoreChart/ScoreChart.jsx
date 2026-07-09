@@ -13,7 +13,6 @@ const ScoreChart = () => {
       try {
         const response = await api.get('/reports/statistics');
         if (response.data.success) {
-          // Chuẩn hóa dữ liệu đầu vào
           setChartData(response.data.data);
         }
       } catch (error) {
@@ -33,7 +32,7 @@ const ScoreChart = () => {
         display: 'flex', 
         justifyContent: 'center', 
         alignItems: 'center', 
-        height: '400px', // Đặt chiều cao tương đương với biểu đồ để giao diện không bị giật giật khi tải xong
+        height: '400px',
         width: '100%' 
       }}
     >
@@ -42,7 +41,6 @@ const ScoreChart = () => {
   );
   }
 
-  // Định nghĩa mảng thứ tự hiển thị mong muốn cho Chú thích (AntD)
   const legendItems = [
     { label: 'Xuất sắc (>= 8)', color: '#52c41a' },
     { label: 'Khá (6 <= x < 8)', color: '#1890ff' },
@@ -63,7 +61,6 @@ const ScoreChart = () => {
               <XAxis dataKey="subjectName" />
               <YAxis />
               
-              {/* Ép thứ tự hiển thị trong Tooltip lúc hover chuột */}
               <Tooltip 
                 formatter={(value) => new Intl.NumberFormat('en-US').format(value) + ' thí sinh'}
                 itemSorter={(item) => {
@@ -72,8 +69,6 @@ const ScoreChart = () => {
                 }}
               />
               
-              {/* 🚫 KHÔNG DÙNG THẺ <Legend /> CỦA RECHARTS NỮA ĐỂ TRÁNH LỖI CACHE THỨ TỰ */}
-              
               <Bar dataKey="level1" name="Xuất sắc (>= 8)" fill="#52c41a" />
               <Bar dataKey="level2" name="Khá (6 <= x < 8)" fill="#1890ff" />
               <Bar dataKey="level3" name="Trung bình (4 <= x < 6)" fill="#faad14" />
@@ -81,8 +76,7 @@ const ScoreChart = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-
-        {/* 🎨 ĐÂY RỒI: Tự chế vùng Chú thích (Legend) nằm ngoài bằng Component Space + Badge của AntD */}
+        
         <div className="custom-legend-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
           <Space size="large">
             {legendItems.map((item, index) => (

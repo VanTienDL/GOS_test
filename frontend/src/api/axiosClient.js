@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-// Khởi tạo một instance riêng cho Axios
+// Init Axios instance
 const api = axios.create({
-  // Lấy URL từ biến môi trường, nếu không có thì mặc định gọi về local backend port 5000
+  // Local development: http://localhost:8080/api
+  // Production: https://your-production-domain.com/api
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  timeout: 30000, // 30 giây timeout cho các truy vấn tính toán lớn
+  timeout: 30000, // 30s timeout 
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Bạn có thể cấu hình thêm Interceptors tại đây nếu cần xử lý lỗi tập trung
 api.interceptors.response.use(
   (response) => response,
   (error) => {

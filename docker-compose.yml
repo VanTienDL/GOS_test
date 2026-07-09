@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5433:5432" # Máy local kết nối qua 5433 để né Postgres gốc của máy
+      - "5433:5432" # Local posgres is on 5432, so use 5433
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

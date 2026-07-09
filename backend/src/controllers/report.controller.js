@@ -2,16 +2,15 @@ const { Sequelize } = require('sequelize');
 const Student = require('../models/student.model');
 const { availableSubjects } = require('../subjects/subject.manager');
 
-// API 2: Thống kê mốc điểm phục vụ vẽ biểu đồ ở Frontend
+// Statistics & chart API
 exports.getScoreStatistics = async (req, res) => {
   try {
     const selectAttributes = [];
 
-    // Áp dụng OOP: Lặp qua danh sách các môn học để tự động dựng câu lệnh SQL đếm động
+    // OOP: Loop through subjects to count
     availableSubjects.forEach((subject) => {
       const col = subject.fieldName;
 
-      // Dùng tính chất đa hình để tạo câu lệnh đếm cho từng mốc điểm của môn học đó
       selectAttributes.push([
         Sequelize.literal(`SUM(CASE WHEN "${col}" >= 8.0 THEN 1 ELSE 0 END)`),
         `${col}_level1`
@@ -30,13 +29,13 @@ exports.getScoreStatistics = async (req, res) => {
       ]);
     });
 
-    // Thực hiện truy vấn Group/Aggregate trực tiếp dưới DB
+    // Query Group/Aggregate
     const rawStats = await Student.findOne({
       attributes: selectAttributes,
       raw: true
     });
 
-    // Format lại dữ liệu thành mảng tường minh để Frontend (Chart) đọc phát ăn ngay
+    // Format for frontend chart
     const formattedData = availableSubjects.map((subject) => {
       const col = subject.fieldName;
       return {
@@ -62,10 +61,10 @@ exports.getScoreStatistics = async (req, res) => {
   }
 };
 
-// API 3: Lọc Top 10 thí sinh khối A (Toán, Vật Lý, Hóa Học)
-exports.getTopKhoidA = async (req, res) => {
+// Top 10 in A-group API
+exports.getTopKhoiA = async (req, res) => {
   try {
-    // Thắt chặt logic: Chỉ lấy những thí sinh thi ĐỦ CẢ 3 MÔN (không môn nào bị null)
+    // Not null in all toan, vat_li, hoa_hoc
     const topStudents = await Student.findAll({
       where: {
         toan: { [Sequelize.Op.ne]: null },
@@ -74,13 +73,13 @@ exports.getTopKhoidA = async (req, res) => {
       },
       attributes: [
         'sbd', 'toan', 'vat_li', 'hoa_hoc',
-        // Tạo một cột ảo tính tổng điểm: toan + vat_li + hoa_hoc
+        // Summing
         [Sequelize.literal('toan + vat_li + hoa_hoc'), 'totalScore']
       ],
       order: [
-        [Sequelize.literal('toan + vat_li + hoa_hoc'), 'DESC'] // Sắp xếp giảm dần
+        [Sequelize.literal('toan + vat_li + hoa_hoc'), 'DESC']
       ],
-      limit: 10, // Chỉ lấy 10 người cao nhất
+      limit: 10,
       raw: true
     });
 

@@ -10,11 +10,11 @@ const reportRoutes = require('./src/routes/report.routes');
 
 const app = express();
 
-// Thắt chặt CORS: Cho phép nhận URL frontend từ môi trường khi deploy lên mây
+// CORS
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
-  process.env.FRONTEND_URL // Thêm biến này trên Koyeb nếu sau này deploy frontend lên Vercel
+  process.env.FRONTEND_URL //For cloud
 ].filter(Boolean);
 
 app.use(cors({
@@ -28,11 +28,11 @@ app.use('/api/reports', reportRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-// Hàm tự động đồng bộ DB và chạy Seeder
+// Init DB & Seed Data
 async function initializeDatabase() {
   try {
     console.log('🔄 Đang kết nối và đồng bộ cấu trúc bảng với PostgreSQL...');
-    await sequelize.authenticate(); // Kiểm tra kết nối trước khi sync để báo lỗi rõ ràng
+    await sequelize.authenticate(); // Check connection
     console.log('📶 Kết nối thành công tới Database Server!');
     
     await sequelize.sync({ force: false });
@@ -50,7 +50,7 @@ async function initializeDatabase() {
   }
 }
 
-// Khởi động Express Server
+// Run server
 app.listen(PORT, async () => {
   console.log(`🚀 Server đang chạy thành công tại port: ${PORT}`);
   await initializeDatabase();
