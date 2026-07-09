@@ -3,10 +3,12 @@
 Hệ thống bao gồm hai thành phần độc lập: Frontend (React Vite) và Backend (ExpressJS), được đóng gói bằng Docker và deploy lên môi trường Production (Vercel & Koyeb).
 
 ## 📁 Cấu trúc thư mục dự án
+```text
 .
 ├── backend/          # Source code NodeJS Express & cấu hình Docker
 ├── frontend/         # Source code React Vite & cấu hình Vercel/Docker
 └── README.md         # Tài liệu hướng dẫn tổng quan hệ thống
+```
 ## 🛠️ Công nghệ sử dụng trong hệ thống
 - **Frontend:** ReactJS, Vite, Ant Design, Axios, Chart.js.
 - **Backend:** NodeJS, ExpressJS, Sequelize (ORM).
