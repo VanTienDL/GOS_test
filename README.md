@@ -34,3 +34,4 @@ For individual service setup, manual configuration, and custom environment confi
 
 ## 🚀 Public deployed website
 This is a link to vercel app connected to Koyeb backend server: https://gos-test-five.vercel.app/search
+Since the server is in free-tier of Koyeb, please take your time a bit for API response, thank you!
