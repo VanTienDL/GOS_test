@@ -30,3 +30,7 @@ Frontend: http://localhost:3000 or http://localhost:5173
 Backend: http://localhost:5000
 
 For individual service setup, manual configuration, and custom environment configurations, please refer to the specific documentation located inside the /backend and /frontend directories.
+
+
+## 🚀 Public deployed website
+This is a link to vercel app connected to Koyeb backend server: https://gos-test-five.vercel.app/search
