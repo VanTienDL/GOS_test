@@ -11,6 +11,7 @@
 Tạo file `.env` tại thư mục này để kết nối API:
 ```text
 VITE_API_BASE_URL=http://localhost:5000/api
+```
 
 # 1. Cài đặt các gói thư viện
 npm install
